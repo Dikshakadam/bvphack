@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> </head>
+<script>
+    $(document).ready(function () {
+        $("#submit").click(function () {
+            $.post("signup.php", {
+                USERNAME: $("#username").val()
+                ,NAME: $("#name").val()
+                , EMAIL: $("#email").val()
+                , MOBILE: $("#mobile").val()
+                , PASSWORD: $("#password").val()
+            }, function (data) {
+                alert(data);
+            });
+        });
+    });
+</script>
+
+<body class="container">
+    <h2 class="display-2">Signup Page</h2>
+<label for="username">Username
+        <input type="text" id="username" class="form-control"> </label>
+    <br>
+<label for="password">Password
+        <input type="password" id="password" class="form-control"> </label>
+    <br>
+    <label for="name">Name
+        <input type="text" id="name" class="form-control"> </label>
+ <br>
+    <label for="email">Email
+        <input type="text" id="email" class="form-control"> </label>
+    <br>
+    <label for="mobile">Mobile
+        <input type="text" id="mobile" class="form-control"> </label>
+    <br>
+    
+    <button class="btn btn-success" id="submit">Submit</button>
+</body>
+
+</html>
+

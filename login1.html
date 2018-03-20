@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script>
+        $(document).ready(function () {
+            $("#login").click(function () {
+                $.post("auth1.php", {
+                    USERNAME: $("#username").val()
+                    , PASSWORD: $("#password").val()
+                }).done(function (data) {
+                    var json = $.parseJSON(data);
+                    var result = json.status;
+                    if (result) {
+                        console.log("success:", json.message);
+                        var pdata = json.data;
+                        var resulta =
+                            var resulta = "<h3 class=\"display-3\">Products</h3><br><table border='2' class=\"table table-hover\"><th class=\"bg-info\">Name</th>" + < th class = \"bg-info\">Sale Price</th>" + "<th class=\"bg-info\">Image</th>"
+                        var resultc = "</table>"
+                        var resultd = "";
+                        $.each(pdata, function (i) {
+                            va username= pdata[i].username;
+                            
+                            var password= pdata[i].password;
+                            resultd = resultd + "<tr><td>" + pname + "</td><td>" + sp + "</td><td><img src='" + image + "' width='170px' height='170px/'></td></tr>";
+                        });
+                        var resultb = resulta + resultd + resultc;
+                        $("#resultpanel").html(resultb);
+                    }
+                    else {
+                        console.log("error", json.message);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body class="container">
+    <h2 class="display-2">Login Page</h2>
+    <label for="username">Username
+        <input type="email" id="username" class="form-control"> </label>
+    <br>
+    <label for="password">Password
+        <input type="password" id="password" class="form-control"> </label>
+    <br>
+    <button class="btn btn-info" id="login">Login</button>
+    <div id="resultpanel"></div>
+</body>
+
+</html>

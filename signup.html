@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<p>This Is The SignUp Page</p>
+	<p>
+		<hr/>Enter Name
+		<input id="Text1" type="text" /> </p>
+	<p>
+		<hr/>Enter Email
+		<input id="Text2" type="text" /> </p>
+	<p>
+		<hr/>Enter Mobile
+		<input id="Text3" type="text" /> </p>
+	<p>
+		<hr/>Enter Password
+		<input id="Password1" type="password" /> </p>
+	<p>
+		<input id="Button1" type="button" value="Submit" /> </p>
+</body>
+<script>
+	$(document).ready(function () {
+		$("#Button1").click(function () {
+			var name = $("#Text1").val();
+			var email = $("#Text2").val();
+			var mobile = $("#Text3").val();
+			var pass = $("#Password1").val();
+			$post(“signup.php”, {
+				NAME: name
+				, EMAIL: email
+				, MOBILE: mobile
+				, PASSWORD: pass
+				, function (data) {
+					alert(data);
+				}
+			});
+		});
+	});
+</script>
+
+</html>

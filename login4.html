@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script>
+        $(document).ready(function () {
+            $("#login").click(function () {
+                $.post("try14.php", {
+                    USERNAME: $("#username").val()
+                     }).done(function (data) {
+                    var json = $.parseJSON(data);
+                    var result = json.status;
+                    if (result) {
+                        console.log("success:", json.message);
+                       
+                        });
+                        )}
+                    else {
+                        console.log("error", json.message);
+                    }
+                });
+  });
+        });
+    </script>
+</head>
+
+<body class="container">
+    <h2 class="display-2">Login Page</h2>
+    <label for="username">Username
+        <input type="text" id="username" class="form-control"> </label>
+    <br>
+   
+    <button class="btn btn-info" id="login">Login</button>
+   </body>
+
+</html>
+
+

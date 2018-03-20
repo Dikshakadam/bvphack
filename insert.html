@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+        <p>This Is The insertion Page</p>
+        <p>
+                <hr/>Enter Name
+                <input id="Text1" type="text" /> </p>
+        <p>
+                <hr/>Enter rollno
+                <input id="Text2" type="text" /> </p>
+        <p>
+                <hr/>Enter marks
+                <input id="Text3" type="text" /> </p>
+       
+        <p>
+                <input id="Button1" type="button" value="Submit" /> </p>
+</body>
+<script>
+        $(document).ready(function () {
+                $("#Button1").click(function () {
+                        var name = $("#Text1").val();
+                        var rollno = $("#Text2").val();
+                        var marks = $("#Text3").val();
+                       
+                        $.post("insert.php", {
+                              NAME: name
+                                , ROLLNO: rollno
+                                , MARKS: marks
+                             
+                                , function (data) {
+                                        alert(data);
+}
+                                
+                        });
+                });
+        });
+</script>
+
+</html>
+

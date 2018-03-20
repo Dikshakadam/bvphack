@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>books</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> </head>
+<script>
+    $(document).ready(function () {
+        $("#submit").click(function () {
+            $.post("try.php", {
+alert("ok1");
+		id="2";name="shiv";
+                ID: $("#id")
+                ,NAME: $("#name")
+                }, function (data) {
+                alert("ok");
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#submit2").click(function () {
+            $.post("try.php", {
+                ID: $("#id=3").val()
+                ,NAME: $("#name=ram").val()
+                }, function (data) {
+                alert(data);
+            });
+        });
+    });
+
+
+    $(document).ready(function () {
+        $("#submit3").click(function () {
+            $.post("try.php", {
+                ID: $("#id=4").val()
+                ,NAME: $("#name=mohan").val()
+                }, function (data) {
+                alert(data);
+            });
+        });
+    });
+
+
+    $(document).ready(function () {
+        $("#submit4").click(function () {
+            $.post("try.php", {
+                ID: $("#id=5").val()
+                ,NAME: $("#name=mohit").val()
+                }, function (data) {
+                alert(data);
+            });
+        });
+    });
+</script>
+    <button class="btn btn-success" id="submit">book1</button>
+ <button class="btn btn-success" id="submit2">book2</button>
+ <button class="btn btn-success" id="submit3">book3</button>
+ <button class="btn btn-success" id="submit4">book4</button>
+</body>
+
+</html>
+
